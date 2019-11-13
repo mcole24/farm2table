@@ -61,7 +61,7 @@
         }
 
         function isExpired($date) {
-            return date("m-d-Y", strtotime($date)) < date("h:i:sa") ;
+            return date(strtotime($date)) < time();
         }
     }
 

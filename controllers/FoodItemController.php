@@ -2,18 +2,11 @@
     require 'db.php';
     date_default_timezone_set("America/New_York");
     class FoodItemController {
-        
-        function getConnection() {
-            $db = new dbConnection();
-            $conn = $db->getConnection();
-
-            return $conn;
-        }
 
         function getAllFoodItems() {
-            $conn = $this->getConnection();
+            global $db;
             $sql = "SELECT item, quantity, expire_date FROM food_items";
-            $result = $conn->query($sql) or die($conn->error);
+            $result = $db->query($sql) or die($db->error);
 
             return $result;
         }
